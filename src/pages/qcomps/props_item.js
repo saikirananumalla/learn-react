@@ -1,6 +1,9 @@
 function Item({ name, isPacked }) {
-  return isPacked ? <li className="item"><del>{name}</del></li> :
-         <li className="item"> {name} </li>
+  return (
+      <li className="item">
+        {isPacked ? <del>{name}</del> : name}
+      </li>
+  );
 }
 
 export default function PackingList() {

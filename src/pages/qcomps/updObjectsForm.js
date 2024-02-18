@@ -4,11 +4,11 @@ export default function Scoreboard() {
   const [player, setPlayer] = useState({
     firstName: 'John Woodrow',
     lastName: 'Wilson',
-    likescore: 10,
+    score: 10,
   });
 
   function handlePlusClick() {
-    player.likescore++;
+    setPlayer({...player, score: player.score+1})
   }
 
   function handleFirstNameChange(e) {
@@ -20,6 +20,7 @@ export default function Scoreboard() {
 
   function handleLastNameChange(e) {
     setPlayer({
+      ...player,
       lastName: e.target.value
     });
   }
@@ -27,7 +28,7 @@ export default function Scoreboard() {
   return (
     <>
       <label>
-        Like Score: <b>{player.likescore}</b>
+        Like Score: <b>{player.score}</b>
         {'  '}
         <button onClick={handlePlusClick}>
           +1
